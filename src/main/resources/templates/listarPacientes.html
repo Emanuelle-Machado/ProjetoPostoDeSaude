@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Posto de Saúde Web</title>
+</head>
+<body>
+	<h1>Pacientes cadastrados</h1>
+	
+	<form method="POST" action="procurarPacientePorCpf">
+		<input type="text" name="cpfPaciente" /> 
+		<input type="submit" value="procurar" />
+	</form>
+	
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>		
+			<th>Sobrenome</th>
+			<th>Telefone</th>	
+			<th>Email</th>	
+			<th>Cpf</th>
+			<th>
+				<a href="listarenderecos">
+				<button id="vizualizar" value="vizualizar">Ver Endereços</button></a>
+			</th>
+		</tr>
+		<tr th:each="paciente : ${pacientes}">
+        <td th:text="${paciente.id}"></td>
+        <td th:text="${paciente.nome}"></td>
+        <td th:text="${paciente.sobrenome}"></td>
+        <td th:text="${paciente.telefone}"></td>
+        <td th:text="${paciente.email}"></td>
+        <td th:text="${paciente.cpf}"></td>
+        
+      </tr>
+	</table>
+	
+	<a href="/projeto/">
+	<button id="voltar" value="voltar">voltar</button></a>
+	
+</body>
+</html>

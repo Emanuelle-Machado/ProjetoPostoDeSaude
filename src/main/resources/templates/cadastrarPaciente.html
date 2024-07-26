@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Posto de Saúde Web</title>
+</head>
+<style>
+	label {
+		display: inline-block;
+		float: left;
+		clear: left;
+		width: 150px;
+		text-align: right;
+	}
+
+	input, select {
+		display: inline-block;
+		float: left;
+	}
+</style>
+
+<body>
+	<h1>Cadastrar paciente e endereço</h1>
+
+	<form method="POST" action="cadastrarPaciente">
+		
+		<!-- CADASTRO DE PACIENTE -->
+		<label>Nome:</label>
+		<input type="text" name="nome" /> <br>
+
+		<label>Sobrenome:</label>
+		<input type="text" name="sobrenome" /> <br>
+
+		<label>Telefone:</label>
+		<input type="text" name="telefone" /> <br>
+		
+		<label>Email:</label>
+		<input type="text" name="email" /> <br>
+		
+		<label>CPF:</label>
+		<input type="text" name="cpf" /> <br>
+
+		<!-- CADASTRO DE ENDEREÇO -->
+		<label>Logradouro:</label>
+		<input type="text" name="endereco.logradouro" /> <br>
+
+		<label>Número:</label>
+		<input type="text" name="endereco.numero" /> <br>
+
+		<label>CEP:</label>
+		<input type="text" name="endereco.cep" />
+
+		<!-- SELEÇÃO DE BAIRRO -->
+		<label>Bairro:</label>
+		<select name="endereco.bairro.id">
+			<option value="0">Escolha um bairro</option>
+			<option th:each="bairro : ${bairros}" th:value="${bairro.id}" th:text="${bairro.nome}"></option>
+		</select>
+		<br>
+
+		<input type="submit" value="cadastrar" />
+	</form>
+	
+	<br>
+	<br>
+	
+	<!-- RETURN PRA INDEX -->
+	<a href="/projeto/">
+	<button id="voltar" value="voltar">voltar</button></a>
+	
+</body>
+
+</html>

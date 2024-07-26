@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Posto de Saúde Web</title>
+</head>
+<style>
+	label {
+		display: inline-block;
+		float: left;
+		clear: left;
+		width: 150px;
+		text-align: right;
+	}
+
+	input, select {
+		display: inline-block;
+		float: left;
+	}
+</style>
+
+<body>
+	<h1>Cadastrar médico</h1>
+
+	<form method="POST" action="cadastrarMedico">
+		
+		<!-- CADASTRO DE MÉDICO -->
+		<label>Nome:</label>
+		<input type="text" name="nome" /> <br>
+
+		<label>Sobrenome:</label>
+		<input type="text" name="sobrenome" /> <br>
+
+		<label>Telefone:</label>
+		<input type="text" name="telefone" /> <br>
+		
+		<label>crm:</label>
+		<input type="text" name="crm" /> <br>
+
+		<input type="submit" value="cadastrar" />
+	</form>
+	
+	<br>
+	<br>
+	
+	<!-- RETURN PRA INDEX -->
+	<a href="/projeto/">
+	<button id="voltar" value="voltar">voltar</button></a>
+	
+</body>
+
+</html>

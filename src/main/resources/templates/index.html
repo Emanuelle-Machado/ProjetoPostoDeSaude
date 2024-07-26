@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Posto de Saúde Web</title>
+</head>
+<body>
+	<h1>Bem vindo ao Posto de Saúde Web</h1>
+	
+	<h2>Cadastros</h2>
+	
+	<a href="cadastrarbairro">
+		<button>cadastrar bairros</button>	
+	</a>
+	<br>
+	<a href="cadastrarconsulta">
+		<button>cadastrar consulta</button>	
+	</a>
+	<br>
+		<div id="mensagemErro" th:if="${mensagemErro}">
+    	<p th:text="${mensagemErro}" class="mensagem-erro"></p>
+		</div>
+	<br>
+	<a href="cadastrarpaciente">
+		<button>cadastrar pacientes</button>	
+	</a>
+	<br>
+	<a href="cadastrarmedico">
+		<button>cadastrar medicos</button>	
+	</a>
+	<br>
+	
+	
+	<h2>Listas</h2>
+	
+	<a href="listarbairros">
+		<button>ver bairros</button>	
+	</a>
+	<br>
+	<a href="listarconsultas">
+		<button>ver consultas</button>	
+	</a>
+	<br>
+	<a href="listarenderecos">
+		<button>ver endereços</button>	
+	</a>
+	<br>
+	<a href="listarpacientes">
+		<button>ver pacientes</button>	
+	</a>
+	<br>
+	<a href="listarmedicos">
+		<button>ver medicos</button>	
+	</a>
+	
+</body>
+</html>
+

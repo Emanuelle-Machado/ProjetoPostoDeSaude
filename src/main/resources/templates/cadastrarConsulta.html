@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Posto de Saúde Web</title>
+</head>
+<style>
+	label {
+		display: inline-block;
+		float: left;
+		clear: left;
+		width: 150px;
+		text-align: right;
+	}
+
+	input, select {
+		display: inline-block;
+		float: left;
+	}
+</style>
+
+<body>
+	
+	<h1>Cadastrar consulta</h1>
+	
+	<form method="POST" action="cadastrarConsulta">
+		
+		<!-- CADASTRO DE DATA E HORA -->
+		<label>Data e Hora:</label>
+		<input type="date" name="dataHora" /> 
+		
+		<!-- CADASTRO DO STATUS -->
+   		<label>Status:</label>
+    		<select name="status" required="required">
+        <option value="">Escolha um status</option>
+        <option value="agendada">agendada</option>
+        <option value="cancelada">cancelada</option>
+        <option value="realizada">realizada</option>
+   			 </select>
+		<br>
+		
+		<!-- CADASTRO DE PACIENTE -->
+		<label>Paciente:</label>
+		<select name="paciente.id">
+			<option value="0">Escolha um paciente</option>
+			<option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome}"></option>
+		</select>
+		<br>
+		
+		<form method="POST" action="procurarPacientePorCpf">
+			<input type="text" name="cpfPaciente" /> 
+			<input type="submit" value="procurar" />
+		</form>
+		
+		<!-- CADASTRO DE MÉDICO -->
+		<label>Médico:</label>
+		<select name="medico.id">
+			<option value="0">Escolha um médico</option>
+			<option th:each="medico : ${medicos}" th:value="${medico.id}" th:text="${medico.nome}"></option>
+		</select>
+		<br>
+		
+		<form method="POST" action="procurarMedicoPorCrm">
+			<input type="text" name="crmMedico" /> 
+			<input type="submit" value="procurar" />
+		</form>
+		
+		<input type="submit" value="cadastrar" />
+	</form>
+
+	<br>
+	<br>
+	<br>
+	
+	<!-- RETURN PRA INDEX -->
+	<a href="/projeto/">
+	<button id="voltar" value="voltar">voltar</button></a>
+	
+</body>
+
+</html>

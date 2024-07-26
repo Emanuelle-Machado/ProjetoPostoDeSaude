@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Posto de Saúde Web</title>
+</head>
+<body>
+	<h1>Médicos cadastrados</h1>
+	
+	<form method="POST" action="procurarMedicoPorCrm">
+		<input type="text" name="crmMedico" /> 
+		<input type="submit" value="procurar" />
+	</form>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>Sobrenome</th>
+			<th>Telefone</th>	
+			<th>crm</th>
+		</tr>
+		<tr th:each="medico : ${medicos}">
+        <td th:text="${medico.id}"></td>
+        <td th:text="${medico.nome}"></td>
+        <td th:text="${medico.sobrenome}"></td>
+        <td th:text="${medico.telefone}"></td>
+        <td th:text="${medico.crm}"></td>
+      </tr>
+	</table>
+	
+	<a href="/projeto/">
+	<button id="voltar" value="voltar">voltar</button></a>
+	
+</body>
+</html>
