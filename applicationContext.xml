@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="MysqlBairroDAO" primary="false"
+		class="br.edu.utfpr.td.tsi.posto.saude.dao.mysql.MysqlBairroDAO"></bean>
+
+	<bean id="MongoBairroDAO" primary="false"
+		class="br.edu.utfpr.td.tsi.posto.saude.dao.mongo.MongoBairroDAO"></bean>
+
+	<bean id="OracleBairroDAO" primary="false"
+		class="br.edu.utfpr.td.tsi.posto.saude.dao.oracle.OracleBairroDAO"></bean>
+
+	<bean id="JsonBairroDAO" primary="false"
+		class="br.edu.utfpr.td.tsi.posto.saude.dao.json.JsonBairroDAO"></bean>
+		
+	<bean id="JPABairroDAO" primary="true"
+		class="br.edu.utfpr.td.tsi.posto.saude.dao.jpa.JPABairroDAO"></bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/postodesaude" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+
+</beans>
